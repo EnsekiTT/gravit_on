@@ -319,6 +319,18 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4073743880425058, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073743880425058, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073743880425058, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
   m_IsPrefabParent: 0
@@ -645,7 +657,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2099356642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.97, z: 0}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2145120073}
