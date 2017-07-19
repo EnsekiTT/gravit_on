@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135403883822252920}
   - component: {fileID: 23376993280741392}
   - component: {fileID: 54523242334018324}
+  - component: {fileID: 114176001379724588}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1861220984560348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.31, y: 2.649, z: 1.665}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,6 +98,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114176001379724588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861220984560348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e0d4678f2c24a34bb20a52d591f0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 1281096945510584, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
+  accelerationScale: 9.8
+  rb: {fileID: 54523242334018324}
 --- !u!135 &135403883822252920
 SphereCollider:
   m_ObjectHideFlags: 1
