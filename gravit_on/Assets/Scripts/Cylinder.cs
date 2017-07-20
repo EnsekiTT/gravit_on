@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cylinder : MonoBehaviour {
 
+	public float azRotateSpeed;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +12,8 @@ public class Cylinder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		float azRotation = Input.GetAxis ("Mouse X") * azRotateSpeed;
+		transform.Rotate (0, azRotation, 0);
 
 	}
 }
