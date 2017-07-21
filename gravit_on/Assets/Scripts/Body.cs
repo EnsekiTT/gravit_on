@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Body : MonoBehaviour {
-
 	public float azRotateSpeed;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame

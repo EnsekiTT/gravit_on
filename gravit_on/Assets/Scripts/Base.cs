@@ -19,29 +19,29 @@ public class Base : MonoBehaviour {
 	void Update () {
 		var direction = rb.position - planet.transform.position;
 		direction.Normalize ();
-		var south = 0;
+		var south = 1;
 		if (rb.position.y > 1) {
 			south = 1;
 		} else if(rb.position.y < -1) {
 			south = -1;
 		}
-		transform.up = south * direction;
+		transform.up = direction;
 		rb.AddForce (accelerationScale * (-direction), ForceMode.Acceleration);
 
 		if (Input.GetKey (KeyCode.W)) {
-			transform.position += body.transform.forward * movementSpeed * south;
+			transform.position += body.transform.forward * movementSpeed;
 		}
 		if (Input.GetKey (KeyCode.S)) {
-			transform.position -= body.transform.forward * movementSpeed * south;
+			transform.position -= body.transform.forward * movementSpeed;
 		}
 		if (Input.GetKey (KeyCode.A)) {
-			transform.position -= body.transform.right * movementSpeed * south;
+			transform.position -= body.transform.right * movementSpeed;
 		}
 		if (Input.GetKey (KeyCode.D)) {
-			transform.position += body.transform.right * movementSpeed * south;
+			transform.position += body.transform.right * movementSpeed;
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			rb.velocity = south * direction * 10;
+			rb.velocity = direction * 10;
 		}
 	}
 }
