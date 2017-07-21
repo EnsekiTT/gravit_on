@@ -1,0 +1,250 @@
+fileFormatVersion: 2
+guid: f443de315c6414b6f873bddc8a4f5ba2
+labels:
+- Shade 3D Loader
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: anoChickBorn
+    100002: anoChickKun
+    100004: //RootNode
+    100006: Antenna
+    100008: Body
+    100010: Body 1
+    100012: btn
+    100014: btn 1
+    100016: btn 2
+    100018: btn 3
+    100020: btn 4
+    100022: btn 5
+    100024: Button1
+    100026: Button2
+    100028: Button3
+    100030: Buttons
+    100032: Disp
+    100034: Disp 1
+    100036: Fire
+    100038: Fire 1
+    100040: Head
+    100042: Head 1
+    100044: HeadBorn
+    100046: LArmBorn
+    100048: LArmBornLow
+    100050: LeftLeg
+    100052: Leg
+    100054: Leg 1
+    100056: LEye
+    100058: LFootBorn
+    100060: LHand
+    100062: LHandBorn
+    100064: LLegBorn
+    100066: LLegBornLow
+    100068: MainBody
+    100070: MetalBody
+    100072: Mouse
+    100074: RArmBorn
+    100076: RArmBornLow
+    100078: REye
+    100080: RFootBorn
+    100082: RHand
+    100084: RHandBorn
+    100086: RightLeg
+    100088: RLegBorn
+    100090: RLegBornLow
+    100092: Transform
+    100094: UpBorm
+    400000: anoChickBorn
+    400002: anoChickKun
+    400004: //RootNode
+    400006: Antenna
+    400008: Body
+    400010: Body 1
+    400012: btn
+    400014: btn 1
+    400016: btn 2
+    400018: btn 3
+    400020: btn 4
+    400022: btn 5
+    400024: Button1
+    400026: Button2
+    400028: Button3
+    400030: Buttons
+    400032: Disp
+    400034: Disp 1
+    400036: Fire
+    400038: Fire 1
+    400040: Head
+    400042: Head 1
+    400044: HeadBorn
+    400046: LArmBorn
+    400048: LArmBornLow
+    400050: LeftLeg
+    400052: Leg
+    400054: Leg 1
+    400056: LEye
+    400058: LFootBorn
+    400060: LHand
+    400062: LHandBorn
+    400064: LLegBorn
+    400066: LLegBornLow
+    400068: MainBody
+    400070: MetalBody
+    400072: Mouse
+    400074: RArmBorn
+    400076: RArmBornLow
+    400078: REye
+    400080: RFootBorn
+    400082: RHand
+    400084: RHandBorn
+    400086: RightLeg
+    400088: RLegBorn
+    400090: RLegBornLow
+    400092: Transform
+    400094: UpBorm
+    4300000: Fire
+    4300002: Leg
+    4300004: RHand
+    4300006: LHand
+    4300008: Fire
+    4300010: Leg
+    4300012: btn
+    4300014: btn
+    4300016: btn
+    4300018: btn
+    4300020: btn
+    4300022: btn
+    4300024: Disp
+    4300026: Disp
+    4300028: MetalBody
+    4300030: Body
+    4300032: LEye
+    4300034: REye
+    4300036: Antenna
+    4300038: Mouse
+    4300040: Head
+    7400000: walk.shd
+    9500000: //RootNode
+    13700000: Antenna
+    13700002: Body 1
+    13700004: btn
+    13700006: btn 1
+    13700008: btn 2
+    13700010: btn 3
+    13700012: btn 4
+    13700014: btn 5
+    13700016: Disp
+    13700018: Disp 1
+    13700020: Fire
+    13700022: Fire 1
+    13700024: Head 1
+    13700026: Leg
+    13700028: Leg 1
+    13700030: LEye
+    13700032: LHand
+    13700034: MetalBody
+    13700036: Mouse
+    13700038: REye
+    13700040: RHand
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk.shd
+      takeName: anoChickModel@walk.shd_anim_intervals
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
