@@ -6,10 +6,19 @@ public class Bullet : MonoBehaviour {
 	public GameObject planet;
 	public float accelerationScale;
 	public Rigidbody rb;
+	float shotVelocity;
+	public Vector3 velocity { get; private set; }
+
+	public static Bullet Instantiate (Bullet prefab, Vector3 velocity){
+		Bullet obj = Instantiate (prefab) as Bullet;
+		obj.velocity = velocity;
+		return obj;
+	}
 
 	// Use this for initialization
 	void Start () {
-		//rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody> ();
+		rb.velocity = velocity;
 	}
 	
 	// Update is called once per frame
