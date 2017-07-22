@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1082,9 +1082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6b4a2a00ae6418794a471b971a40e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 1453708606}
-  accelerationScale: 9.8
-  rb: {fileID: 191769773}
+  planet: {fileID: 0}
+  accelerationScale: 0
+  rb: {fileID: 0}
 --- !u!65 &191769772
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8197,9 +8197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6b4a2a00ae6418794a471b971a40e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 1453708606}
-  accelerationScale: 9.8
-  rb: {fileID: 1601628822}
+  planet: {fileID: 0}
+  accelerationScale: 0
+  rb: {fileID: 0}
 --- !u!65 &1601628821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10070,9 +10070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6b4a2a00ae6418794a471b971a40e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 1453708606}
-  accelerationScale: 9.8
-  rb: {fileID: 1943765554}
+  planet: {fileID: 0}
+  accelerationScale: 0
+  rb: {fileID: 0}
 --- !u!65 &1943765553
 BoxCollider:
   m_ObjectHideFlags: 0

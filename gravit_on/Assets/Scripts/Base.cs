@@ -9,18 +9,24 @@ public class Base : MonoBehaviour {
 	public float azRotateSpeed;
 	public float accelerationScale;
 	public Rigidbody rb;
+	float directionForward;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
+		directionForward = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		var direction = rb.position - planet.transform.position;
+		var direction = transform.position - planet.transform.position;
 		direction.Normalize ();
-		transform.up = direction;
-		rb.AddForce (accelerationScale * (-direction), ForceMode.Acceleration);
+
+		transform.LookAt (planet.transform.position);
+		transform.Rotate (new Vector3 (-90f, 0f, 0f), Space.Self);
+		transform.Rotate (new Vector3 (0f, directionForward, 0f), Space.Self);
+
+		rb.AddForce (accelerationScale * -  direction, ForceMode.Acceleration);
 
 		if (Input.GetKey (KeyCode.W)) {
 			transform.position += body.transform.forward * movementSpeed;
@@ -36,9 +42,6 @@ public class Base : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			rb.velocity = direction * 10;
-		}
-		if (transform.position.y < -48 && (-10 < transform.position.x < 10) && (-10 < transform.position.z < 10)){
-			transform.position = new Vector3(transform.position.x, -48, transform.position.z);
 		}
 	}
 }
