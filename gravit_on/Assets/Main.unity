@@ -859,7 +859,8 @@ MonoBehaviour:
   movementSpeed: 0.3
   planet: {fileID: 1453708606}
   body: {fileID: 2145120068}
-  accelerationScale: 9.8
+  azRotateSpeed: 10
+  accelerationScale: 20
   rb: {fileID: 2099356643}
 --- !u!1 &2145120068
 GameObject:
@@ -950,7 +951,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2145120068}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 100, z: 1}
   m_Children:
