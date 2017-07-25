@@ -6,15 +6,16 @@ public class Base : MonoBehaviour {
 	public float movementSpeed;
 	public GameObject planet;
 	public GameObject body;
-	public float azRotateSpeed;
 	public float accelerationScale;
 	public Rigidbody rb;
 	float directionForward;
+	private bool floorTouch;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		directionForward = 0f;
+		floorTouch = true;
 	}
 	
 	// Update is called once per frame
@@ -40,8 +41,17 @@ public class Base : MonoBehaviour {
 		if (Input.GetKey (KeyCode.D)) {
 			transform.position += body.transform.right * movementSpeed;
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) && floorTouch) {
 			rb.velocity = direction * 10;
+			floorTouch = false;
+		}
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		var altitudeBase = (transform.position - planet.transform.position).magnitude;
+		var altitudeCollisionObject = (collision.gameObject.transform.position - planet.transform.position).magnitude;
+		if (altitudeBase > altitudeCollisionObject) {
+			floorTouch = true;
 		}
 	}
 }
