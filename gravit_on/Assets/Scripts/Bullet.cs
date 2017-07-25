@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 	public GameObject planet;
 	public float accelerationScale;
 	public Rigidbody rb;
+	public float delVelocity;
 	float shotVelocity;
 	public Vector3 velocity { get; private set; }
 
@@ -26,5 +27,8 @@ public class Bullet : MonoBehaviour {
 		var direction = planet.transform.position - transform.position;
 		direction.Normalize ();
 		rb.AddForce (accelerationScale * direction, ForceMode.Acceleration);
+		if (rb.velocity.magnitude < delVelocity) {
+			GameObject.Destroy (this.gameObject);
+		}
 	}
 }

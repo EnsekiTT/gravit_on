@@ -112,6 +112,7 @@ MonoBehaviour:
   planet: {fileID: 1281096945510584, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
   accelerationScale: 9.8
   rb: {fileID: 54523242334018324}
+  delVelocity: 10
 --- !u!135 &135403883822252920
 SphereCollider:
   m_ObjectHideFlags: 1
