@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿　using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;	//ネットワーク関連で必要なライブラリー
 
