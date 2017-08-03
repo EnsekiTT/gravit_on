@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour {
 	public float accelerationScale;
 	public Rigidbody rb;
 	public float delVelocity;
+	public float delLength;
 	float shotVelocity;
 	public Vector3 velocity { get; private set; }
 
@@ -25,9 +26,13 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var direction = planet.transform.position - transform.position;
+		var length = direction.magnitude;
 		direction.Normalize ();
 		rb.AddForce (accelerationScale * direction, ForceMode.Acceleration);
 		if (rb.velocity.magnitude < delVelocity) {
+			GameObject.Destroy (this.gameObject);
+		}
+		if (length > delLength) {
 			GameObject.Destroy (this.gameObject);
 		}
 	}
