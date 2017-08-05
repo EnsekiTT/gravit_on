@@ -5,44 +5,44 @@ using UnityEngine;
 public class Base : MonoBehaviour {
 	public float movementSpeed;
 	public GameObject planet;
-	public GameObject body;
 	public float accelerationScale;
+	public float azRotateSpeed;
 	public Rigidbody rb;
-	float directionForward;
 	private bool floorTouch;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-		directionForward = 0f;
 		floorTouch = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		var direction = transform.position - planet.transform.position;
-		direction.Normalize ();
+		//向きを変える
+		var azRotation = Input.GetAxis ("Mouse X") * azRotateSpeed;
+		transform.Rotate (0, azRotation, 0);
 
-		transform.LookAt (planet.transform.position);
-		transform.Rotate (new Vector3 (-90f, 0f, 0f), Space.Self);
-		transform.Rotate (new Vector3 (0f, directionForward, 0f), Space.Self);
+		// 重力方向を頭にして立つ
+		var gravityUp = (transform.position - planet.transform.position).normalized;
+		var targetVector = transform.position + transform.forward;
+		transform.up = gravityUp;
+		targetVector = transform.InverseTransformPoint (targetVector);
+		targetVector.y = 0;
+		targetVector = transform.TransformPoint (targetVector);
+		transform.LookAt (targetVector, gravityUp);
 
-		rb.AddForce (accelerationScale * -  direction, ForceMode.Acceleration);
+		// 動き回るところ
+		var moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+		var movePosition = transform.TransformDirection (moveDirection * movementSpeed);
+		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movePosition);
 
-		if (Input.GetKey (KeyCode.W)) {
-			transform.position += body.transform.forward * movementSpeed;
-		}
-		if (Input.GetKey (KeyCode.S)) {
-			transform.position -= body.transform.forward * movementSpeed;
-		}
-		if (Input.GetKey (KeyCode.A)) {
-			transform.position -= body.transform.right * movementSpeed;
-		}
-		if (Input.GetKey (KeyCode.D)) {
-			transform.position += body.transform.right * movementSpeed;
-		}
-		if (Input.GetKeyDown (KeyCode.Space) && floorTouch) {
-			rb.velocity = direction * 10;
+		// 重力を出すところ
+		transform.GetComponent<Rigidbody>().AddForce(gravityUp * -1 * accelerationScale);
+
+		// ジャンプするところ
+		if (Input.GetKeyDown(KeyCode.Space) && floorTouch)
+		{
+			rb.velocity = gravityUp * 10;
 			floorTouch = false;
 		}
 	}
