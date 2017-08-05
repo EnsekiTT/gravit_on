@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Base : MonoBehaviour {
 	public float movementSpeed;
+	public float movementSpeedRun;
 	public GameObject planet;
 	public float accelerationScale;
 	public float azRotateSpeed;
@@ -33,7 +34,11 @@ public class Base : MonoBehaviour {
 
 		// 動き回るところ
 		var moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-		var movePosition = transform.TransformDirection (moveDirection * movementSpeed);
+		var movementSpeedGain = movementSpeed;
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			movementSpeedGain = movementSpeedRun;
+		}
+		var movePosition = transform.TransformDirection (moveDirection * movementSpeedGain);
 		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movePosition);
 
 		// 重力を出すところ

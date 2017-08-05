@@ -15,7 +15,7 @@ public class Stage : MonoBehaviour {
 	void Update (){
 		count--;
 		if (count <= 0){
-			count = 5;
+			count = 10;
 			var sizeX = Random.Range (1f, 10f);
 			var sizeY = Random.Range (2f, 10f);
 			var sizeZ = Random.Range (1f, 10f);
