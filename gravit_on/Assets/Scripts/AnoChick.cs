@@ -8,12 +8,21 @@ public class AnoChick : MonoBehaviour {
 	public float movementSpeed;
 	public Rigidbody rb;
 	float directionForward;
-	int collisionCT = 120;
+	int collisionCT = 60;
 	int currentCollisionCT;
 	// Use this for initialization
 	void Start () {
 		directionForward = 0f;
-		currentCollisionCT = 0;
+		currentCollisionCT = collisionCT;
+
+		var randX = Random.Range (-1f, 1f);
+		var randY = Random.Range (-1f, 1f);
+		var randZ = Random.Range (-1f, 1f);
+		var angle = Random.Range (-180f, 180f);
+		Vector3 axis = new Vector3 (randX, randY, randZ).normalized;
+		transform.RotateAround (planet.transform.position, axis, angle);
+		transform.position = transform.up * (planet.transform.localScale.y/2.0f) + new Vector3(0, 2, 0);
+
 	}
 
 	// Update is called once per frame
@@ -40,11 +49,8 @@ public class AnoChick : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-
-
-
-		if (collision.gameObject.name != "planet" && currentCollisionCT <= 0) {
-			currentCollisionCT = 120;
+		if (collision.gameObject.name != "Stage" && currentCollisionCT <= 0) {
+			currentCollisionCT = collisionCT;
 			directionForward = Random.Range (0, 360);
 			var azRotation = directionForward;
 			transform.Rotate(0, azRotation, 0);

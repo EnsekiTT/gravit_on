@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Base : MonoBehaviour {
+	public GameObject planet;
 	public float movementSpeed;
 	public float movementSpeedRun;
-	public GameObject planet;
 	public float accelerationScale;
 	public float azRotateSpeed;
 	public Rigidbody rb;
@@ -15,6 +15,14 @@ public class Base : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		floorTouch = true;
+
+		var randX = Random.Range (-1f, 1f);
+		var randY = Random.Range (-1f, 1f);
+		var randZ = Random.Range (-1f, 1f);
+		var angle = Random.Range (-180f, 180f);
+		Vector3 axis = new Vector3 (randX, randY, randZ).normalized;
+		transform.RotateAround (planet.transform.position, axis, angle);
+		transform.position = transform.up * (planet.transform.localScale.y/2.0f) + new Vector3(0, 2, 0);
 	}
 	
 	// Update is called once per frame
@@ -47,7 +55,7 @@ public class Base : MonoBehaviour {
 		// ジャンプするところ
 		if (Input.GetKeyDown(KeyCode.Space) && floorTouch)
 		{
-			rb.velocity = gravityUp * 50;
+			rb.velocity = gravityUp * 20;
 			floorTouch = false;
 		}
 	}

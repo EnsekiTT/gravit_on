@@ -346,6 +346,34 @@ Transform:
   m_Father: {fileID: 1640467984}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &370319876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 370319877}
+  m_Layer: 0
+  m_Name: Builds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370319877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 370319876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372630287
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,13 +400,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 372630287}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.3}
+  m_LocalPosition: {x: 0, y: 1.3599968, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2057055504}
   - {fileID: 1566799300}
-  m_Father: {fileID: 1898163404}
-  m_RootOrder: 0
+  m_Father: {fileID: 1263477878}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &372630289
 MonoBehaviour:
@@ -488,7 +516,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378903057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 50.24, z: -8.4}
+  m_LocalPosition: {x: 2, y: 55, z: 5}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 2137803463}
@@ -1867,6 +1895,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1898163404}
+  - {fileID: 372630288}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2325,7 +2354,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   building: {fileID: 114082400031134398, guid: d6b7b09c3ba864e62977d3eeaa420338, type: 2}
   centerOfPlanet: {x: 0, y: 0, z: 0}
-  count: 0
+  planetSize: {x: 50, y: 50, z: 50}
+  Builds: {fileID: 370319876}
+  amount: 50
 --- !u!1 &1489047232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2851,6 +2882,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3c560b1c5b4a7c048ba5f9b87a27ffd7, type: 2}
+    - target: {fileID: 1281096945510584, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
+      propertyPath: m_Name
+      value: Stage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
   m_IsPrefabParent: 0
@@ -2944,8 +2979,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.859998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 372630288}
+  m_Children: []
   m_Father: {fileID: 1263477878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

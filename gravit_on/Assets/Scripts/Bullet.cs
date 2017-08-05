@@ -7,8 +7,10 @@ public class Bullet : MonoBehaviour {
 	public float accelerationScale;
 	public Rigidbody rb;
 	public float delVelocity;
-	public float delLength;
+	public float delHighLength;
+	public float delLowLength;
 	float shotVelocity;
+	float floorLength;
 	public Vector3 velocity { get; private set; }
 
 	public static Bullet Instantiate (Bullet prefab, Vector3 velocity){
@@ -21,6 +23,7 @@ public class Bullet : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		rb.velocity = velocity;
+		floorLength = planet.transform.localScale.y;
 	}
 	
 	// Update is called once per frame
@@ -29,10 +32,10 @@ public class Bullet : MonoBehaviour {
 		var length = direction.magnitude;
 		direction.Normalize ();
 		rb.AddForce (accelerationScale * direction, ForceMode.Acceleration);
-		if (rb.velocity.magnitude < delVelocity) {
+		if (rb.velocity.magnitude < delVelocity && length < floorLength + delLowLength) {
 			GameObject.Destroy (this.gameObject);
 		}
-		if (length > delLength) {
+		if (length > delHighLength) {
 			GameObject.Destroy (this.gameObject);
 		}
 	}
