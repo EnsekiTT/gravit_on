@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnoChick : MonoBehaviour {
 	public GameObject planet;
 	public float accelerationScale;
+	public float movementSpeed;
 	public Rigidbody rb;
 	float directionForward;
 	int collisionCT = 120;
@@ -18,18 +19,23 @@ public class AnoChick : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentCollisionCT--;
-		var direction = transform.position - planet.transform.position;
 
-		direction.Normalize ();
+		// 重力方向を頭にして立つ
+		var gravityUp = (transform.position - planet.transform.position).normalized;
+		var targetVector = transform.position + transform.forward;
+		transform.up = gravityUp;
+		targetVector = transform.InverseTransformPoint (targetVector);
+		targetVector.y = 0;
+		targetVector = transform.TransformPoint (targetVector);
+		transform.LookAt (targetVector, gravityUp);
 
-	
-		//transform.up =direction;
-		transform.LookAt(planet.transform.position);
-		transform.Rotate (new Vector3(-90f,0f,0f),Space.Self);
-		transform.Rotate (new Vector3(0f,directionForward,0f),Space.Self);
+		// 動き回るところ
+		var moveDirection = new Vector3(0, 0, 1).normalized;
+		var movePosition = transform.TransformDirection (moveDirection * movementSpeed);
+		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movePosition);
 
-		rb.AddForce (accelerationScale * -  direction, ForceMode.Acceleration);
-		transform.position += transform.forward * 0.05f;
+		// 重力を出すところ
+		transform.GetComponent<Rigidbody>().AddForce(gravityUp * -1 * accelerationScale);
 
 	}
 
@@ -40,6 +46,8 @@ public class AnoChick : MonoBehaviour {
 		if (collision.gameObject.name != "planet" && currentCollisionCT <= 0) {
 			currentCollisionCT = 120;
 			directionForward = Random.Range (0, 360);
+			var azRotation = directionForward;
+			transform.Rotate(0, azRotation, 0);
 		}
 		if (collision.gameObject.name == "Bullet(Clone)") {
 			GameObject.Destroy (collision.gameObject);

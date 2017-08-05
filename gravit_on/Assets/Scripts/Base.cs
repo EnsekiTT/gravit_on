@@ -42,7 +42,7 @@ public class Base : MonoBehaviour {
 		// ジャンプするところ
 		if (Input.GetKeyDown(KeyCode.Space) && floorTouch)
 		{
-			rb.velocity = gravityUp * 10;
+			rb.velocity = gravityUp * 50;
 			floorTouch = false;
 		}
 	}
