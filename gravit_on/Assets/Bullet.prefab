@@ -113,7 +113,8 @@ MonoBehaviour:
   accelerationScale: 9.8
   rb: {fileID: 54523242334018324}
   delVelocity: 10
-  delLength: 2000
+  delHighLength: 1000
+  delLowLength: 50
 --- !u!135 &135403883822252920
 SphereCollider:
   m_ObjectHideFlags: 1

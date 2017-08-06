@@ -22,7 +22,7 @@ public class Base : MonoBehaviour {
 		var angle = Random.Range (-180f, 180f);
 		Vector3 axis = new Vector3 (randX, randY, randZ).normalized;
 		transform.RotateAround (planet.transform.position, axis, angle);
-		transform.position = transform.up * (planet.transform.localScale.y/2.0f) + new Vector3(0, 2, 0);
+		transform.position = transform.up * (planet.transform.localScale.y/2.0f);
 	}
 	
 	// Update is called once per frame
