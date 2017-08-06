@@ -18,7 +18,7 @@ public class Stage : MonoBehaviour {
 			var sizeZ = Random.Range (1f, 10f);
 			Building builds = Building.Instantiate(building, new Vector3(sizeX, sizeY, sizeZ));
 			var randX = Random.Range (-1f, 1f);
-			var randY = Random.Range (-1f, 1f);
+			var randY = Random.Range (0f, 0f);
 			var randZ = Random.Range (-1f, 1f);
 			var angle = Random.Range (-180f, 180f);
 			Vector3 axis = new Vector3 (randX, randY, randZ).normalized;
