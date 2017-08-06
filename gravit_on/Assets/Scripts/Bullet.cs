@@ -8,9 +8,9 @@ public class Bullet : MonoBehaviour {
 	public Rigidbody rb;
 	public float delVelocity;
 	public float delHighLength;
-	public float delLowLength;
 	float shotVelocity;
 	float floorLength;
+	public int playerId;
 	public Vector3 velocity { get; private set; }
 
 	public static Bullet Instantiate (Bullet prefab, Vector3 velocity){
@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		rb.velocity = velocity;
-		floorLength = planet.transform.localScale.y;
+		floorLength = planet.transform.localScale.y/2;
 	}
 	
 	// Update is called once per frame
@@ -32,10 +32,22 @@ public class Bullet : MonoBehaviour {
 		var length = direction.magnitude;
 		direction.Normalize ();
 		rb.AddForce (accelerationScale * direction, ForceMode.Acceleration);
-		if (rb.velocity.magnitude < delVelocity && length < floorLength + delLowLength) {
+		var player_list = Player.FindObjectsOfType<Player> ();
+		foreach(Player player in player_list){
+			if (playerId == player.playerId) {
+				continue;
+			}
+			direction = player.transform.position - transform.position;
+			direction.Normalize ();
+			rb.AddForce (accelerationScale * direction, ForceMode.Acceleration);
+		}
+
+		if (rb.velocity.magnitude < delVelocity && length < floorLength) {
+			Debug.Log ("Too Slow Despawn");
 			GameObject.Destroy (this.gameObject);
 		}
 		if (length > delHighLength) {
+			Debug.Log ("Too Far Despawn");
 			GameObject.Destroy (this.gameObject);
 		}
 	}

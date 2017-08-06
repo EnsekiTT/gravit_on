@@ -44,7 +44,7 @@ public class AnoChick : MonoBehaviour {
 		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movePosition);
 
 		// 重力を出すところ
-		transform.GetComponent<Rigidbody>().AddForce(gravityUp * -1 * accelerationScale);
+		GetComponent<Rigidbody>().AddForce(gravityUp * -1 * accelerationScale);
 
 	}
 

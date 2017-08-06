@@ -14,7 +14,7 @@ public class Stage : MonoBehaviour {
 		centerOfPlanet = transform.position;
 		for( int i = 0; i < amount; i++){
 			var sizeX = Random.Range (1f, 10f);
-			var sizeY = Random.Range (2f, 10f);
+			var sizeY = Random.Range (2f, 15f);
 			var sizeZ = Random.Range (1f, 10f);
 			Building builds = Building.Instantiate(building, new Vector3(sizeX, sizeY, sizeZ));
 			var randX = Random.Range (-1f, 1f);
@@ -31,6 +31,5 @@ public class Stage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update (){
-
 	}
 }

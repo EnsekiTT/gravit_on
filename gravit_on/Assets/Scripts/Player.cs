@@ -1,20 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Base : MonoBehaviour {
+public class Player : MonoBehaviour {
 	public GameObject planet;
 	public float movementSpeed;
 	public float movementSpeedRun;
 	public float accelerationScale;
 	public float azRotateSpeed;
-	public Rigidbody rb;
+	private Rigidbody rb;
 	private bool floorTouch;
 
+	public Bullet bullet;
+	public GameObject muzzle;
+	public float speed;
+
+	// Player status
+	public int playerId;
+	public int score;
+	public int hitPoint;
+	public int bullets;
+	public int hitCount;
+	public int killCount;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		floorTouch = true;
+
+		//status
+		playerId = 0;
+		score = 0;
+		hitPoint = 100;
+		bullets = 1000;
+		hitCount = 0;
+		killCount = 0;
 
 		var randX = Random.Range (-1f, 1f);
 		var randY = Random.Range (-1f, 1f);
@@ -23,11 +43,13 @@ public class Base : MonoBehaviour {
 		Vector3 axis = new Vector3 (randX, randY, randZ).normalized;
 		transform.RotateAround (planet.transform.position, axis, angle);
 		transform.position = transform.up * (planet.transform.localScale.y/2.0f);
+		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//向きを変える
+		score++;
 		var azRotation = Input.GetAxis ("Mouse X") * azRotateSpeed;
 		transform.Rotate (0, azRotation, 0);
 
@@ -47,24 +69,42 @@ public class Base : MonoBehaviour {
 			movementSpeedGain = movementSpeedRun;
 		}
 		var movePosition = transform.TransformDirection (moveDirection * movementSpeedGain);
-		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + movePosition);
+		rb.MovePosition(rb.position + movePosition);
 
 		// 重力を出すところ
-		transform.GetComponent<Rigidbody>().AddForce(gravityUp * -1 * accelerationScale);
+		rb.AddForce(gravityUp * -1 * accelerationScale);
 
 		// ジャンプするところ
 		if (Input.GetKeyDown(KeyCode.Space) && floorTouch)
 		{
-			rb.velocity = gravityUp * 20;
+			rb.velocity = gravityUp * 10;
 			floorTouch = false;
+		}
+
+		if(Input.GetMouseButton(0) && bullets > 0){
+			bullets--;
+			// 弾丸の複製
+			Bullet bullets_obj = Bullet.Instantiate(bullet, new Vector3(0,0,0));
+			bullets_obj.playerId = playerId;
+			Vector3 force;
+			force = muzzle.transform.forward * speed;
+			// Rigidbodyに力を加えて発射
+			bullets_obj.GetComponent<Rigidbody> ().AddForce (force);
+			// 弾丸の位置を調整
+			bullets_obj.transform.position = muzzle.transform.position;
 		}
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		var altitudeBase = (transform.position - planet.transform.position).magnitude;
-		var altitudeCollisionObject = (collision.gameObject.transform.position - planet.transform.position).magnitude;
-		if (altitudeBase > altitudeCollisionObject) {
+		if (collision.gameObject.name != "Bullet(Clone)") {
 			floorTouch = true;
+		}
+		if (collision.gameObject.name == "Bullet(Clone)") {
+			hitPoint--;
+			if (hitPoint <= 0) {
+				//
+				SceneManager.LoadScene ("Menu");
+			}
 		}
 	}
 }
