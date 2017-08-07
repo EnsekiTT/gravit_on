@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e0d4678f2c24a34bb20a52d591f0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 1281096945510584, guid: 01e52ac4b6c5e4ba8b7e5aecdd9914b0, type: 2}
+  planet: {fileID: 1930214518934766, guid: a4b3576920fbf4a38abdfb0e94fb7c25, type: 2}
   accelerationScale: 20
   rb: {fileID: 54523242334018324}
   delVelocity: 3

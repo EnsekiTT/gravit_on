@@ -32,8 +32,8 @@ public class Bullet : MonoBehaviour {
 		var length = direction.magnitude;
 		direction.Normalize ();
 		rb.AddForce (accelerationScale * direction, ForceMode.Acceleration);
-		var player_list = Player.FindObjectsOfType<Player> ();
-		foreach(Player player in player_list){
+		var player_list = PlayerControl.FindObjectsOfType<PlayerControl> ();
+		foreach(PlayerControl player in player_list){
 			if (playerId == player.playerId) {
 				continue;
 			}

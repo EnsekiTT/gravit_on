@@ -5,11 +5,9 @@ using UnityEngine.UI;
 
 public class Status : MonoBehaviour {
 	public Text statusText;
-	public Player player;
-	int score;
+	public PlayerControl player;
 	// Use this for initialization
 	void Start () {
-		score = 0;
 	}
 	
 	// Update is called once per frame
